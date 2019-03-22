@@ -1,0 +1,21 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  username: mantra
+  password: 1899milan2019
+  database: mantra_api_development
+
+test:
+  <<: *default
+  database: mantra_api_test
+
+production:
+  <<: *default
+  database: mantra-calcio-api_production
+  username: mantra-calcio-api
+  password: <%= ENV['MANTRA-CALCIO-API_DATABASE_PASSWORD'] %>
