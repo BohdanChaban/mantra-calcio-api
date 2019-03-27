@@ -13,7 +13,6 @@ class ClubsContainer extends Component {
     componentDidMount() {
         axios.get('api/v1/clubs.json')
             .then(response => {
-                console.log(response)
                 this.setState({
                     clubs: response.data
                 })
@@ -23,10 +22,12 @@ class ClubsContainer extends Component {
 
     render() {
         return (
-            <div className="clubs-container">
-                {this.state.clubs.map( club => {
-                    return (<Club club={club} key={club.id} />)
-                })}
+            <div className="clubs-container container">
+                <div className="row">
+                    {this.state.clubs.map( club => {
+                        return (<Club club={club} key={club.id} />)
+                    })}
+                </div>
             </div>
         )
     }
